@@ -1,2 +1,32 @@
 Hashmaps theory part
-hashmaps are defined as the 
+hashmaps are defined as the
+1. Hash Function
+The key to achieving constant-time access in a HashMap lies in the hash function. A hash function takes an input (in this case, the key) and computes an integer, called a hash code (or hash value). This hash code is then used to determine the index where the key-value pair will be stored in the underlying array (or "bucket array").
+
+The hash code is not the same as the array index. The array index is derived from the hash code using modulo operation (i.e., hash % size_of_array).
+The quality of the hash function is critical because it should distribute keys uniformly across the array to avoid clustering (many keys mapping to the same index).
+Example: Suppose we have a key "Ankit". The hash function converts this string into a numeric hash code like 123456. If the underlying array has 100 slots, the array index will be 123456 % 100 = 56.
+
+2. Array as Buckets
+Internally, the HashMap uses an array of fixed size to store key-value pairs. Each index of the array is referred to as a bucket. When a key-value pair is added, the hash function calculates the bucket where the pair should be stored.
+
+If the hash function distributes keys uniformly, most operations (insertion, search, and deletion) will only involve accessing a single bucket, resulting in O(1) time complexity.
+3. Collisions and Handling
+Even with a good hash function, different keys can sometimes generate the same hash code, leading to collisions. To handle collisions, HashMaps use different strategies, with the most common ones being:
+
+Chaining: Each bucket holds a linked list (or another structure like a binary tree). If multiple keys map to the same bucket, they are stored in this list. In the worst case, if many keys collide into the same bucket, the list becomes long, and lookup time can degrade to O(n), where n is the number of keys. However, with a good hash function, this is rare.
+
+Open Addressing: Instead of storing a list of items in each bucket, open addressing involves probing for the next empty slot in the array when a collision occurs.
+
+Example: Let’s say both the keys "apple" and "banana" hash to index 56. Using chaining, both these keys will be stored in a linked list at index 56. When you need to look up "banana", the HashMap checks index 56 and traverses the list to find "banana".
+
+4. Resizing and Rehashing
+Since the array in the HashMap has a fixed size, as more elements are inserted, the number of collisions may increase. To maintain performance, HashMaps typically resize themselves when a certain load factor (e.g., 75% full) is reached.
+
+Resizing: The array is resized (often doubled in size) when the number of stored elements exceeds a certain threshold.
+Rehashing: When resizing happens, all keys are rehashed to new positions based on the size of the new array. This is necessary because the modulo operation changes as the array size changes.
+5. Accessing Elements in O(1) Time
+The reason HashMaps can offer O(1) lookup and insertion times is that:
+
+The hash function calculates the array index in constant time.
+In a well-distributed hash map, there will be very few collisions, so accessing an element involves just an array lookup (constant time) and, at most, a short list traversal (near-constant time).
