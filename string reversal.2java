@@ -1,0 +1,9 @@
+public class reversal2 {
+    //we can also reverse with the time complecxity of o(n) with the string builder
+    public static void main(String[] args) {
+        String name="lakshmi";
+        StringBuilder sb=new StringBuilder(name);
+        String reverse=sb.reverse().toString();
+        System.out.println(reverse);
+    }   
+}
