@@ -18,7 +18,7 @@ Chaining: Each bucket holds a linked list (or another structure like a binary tr
 
 Open Addressing: Instead of storing a list of items in each bucket, open addressing involves probing for the next empty slot in the array when a collision occurs.
 
-Example: Let’s say both the keys "apple" and "banana" hash to index 56. Using chaining, both these keys will be stored in a linked list at index 56. When you need to look up "banana", the HashMap checks index 56 and traverses the list to find "banana".
+Example: Let’s say both the keys "apple" and "banana" hash to index 56.chaining, both these keys will be stored in a linked list at index 56. When you need to look up "banana", the HashMap checks index 56 and traverses the list to find "banana".
 
 4. Resizing and Rehashing
 Since the array in the HashMap has a fixed size, as more elements are inserted, the number of collisions may increase. To maintain performance, HashMaps typically resize themselves when a certain load factor (e.g., 75% full) is reached.
@@ -27,6 +27,4 @@ Resizing: The array is resized (often doubled in size) when the number of stored
 Rehashing: When resizing happens, all keys are rehashed to new positions based on the size of the new array. This is necessary because the modulo operation changes as the array size changes.
 5. Accessing Elements in O(1) Time
 The reason HashMaps can offer O(1) lookup and insertion times is that:
-
-The hash function calculates the array index in constant time.
 In a well-distributed hash map, there will be very few collisions, so accessing an element involves just an array lookup (constant time) and, at most, a short list traversal (near-constant time).
