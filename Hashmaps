@@ -14,7 +14,7 @@ If the hash function distributes keys uniformly, most operations (insertion, sea
 3. Collisions and Handling
 Even with a good hash function, different keys can sometimes generate the same hash code, leading to collisions. To handle collisions, HashMaps use different strategies, with the most common ones being:
 
-Chaining: Each bucket holds a linked list (or another structure like a binary tree). If multiple keys map to the same bucket, they are stored in this list. In the worst case, if many keys collide into the same bucket, the list becomes long, and lookup time can degrade to O(n), where n is the number of keys. However, with a good hash function, this is rare.
+Chaining: Each bucket holds a linked list (or another structure like a binary tree).if multiple keys map to the same bucket, they are stored in this list. In the worst case, if many keys collide into the same bucket, the list becomes long, and lookup time can degrade to O(n), where n is the number of keys. However, with a good hash function, this is rare.
 
 Open Addressing: Instead of storing a list of items in each bucket, open addressing involves probing for the next empty slot in the array when a collision occurs.
 
