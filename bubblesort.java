@@ -18,7 +18,6 @@ public class BubbleSort {
                     swapped = true;
                 }
             }
-            
             // If no elements were swapped, break the loop (array is already sorted)
             if (!swapped) {
                 break;
