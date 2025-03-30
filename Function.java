@@ -8,4 +8,4 @@ public static void main(String args[]){
 static void changes(int arr[]){
     arr[0]=8;
 }
-}
+
