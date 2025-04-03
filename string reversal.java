@@ -11,5 +11,5 @@ public class reversal {
             reverse=reverse+name.charAt(i);
         }
         System.out.println(reverse);
-   }   
+   }  
 }
