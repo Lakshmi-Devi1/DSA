@@ -6,7 +6,5 @@ public class reversal3 {
     StringBuilder sb=new StringBuilder(ignore);
     String reversal=sb.reverse().toString();
     System.out.println(reversal);
-}
-
-    
+}   
 }
